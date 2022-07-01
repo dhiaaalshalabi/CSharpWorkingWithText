@@ -1,14 +1,27 @@
-﻿Console.Write("What's your name? ");
-var name = Console.ReadLine();
-
-var reversed = ReversedName(name);
-
-Console.WriteLine("Reversed name: " + reversed);
-
-string ReversedName(string? s)
+﻿var numbers = new List<int>();
+while (true)
 {
-    var array = new char[s.Length];
-    for (var i = s.Length; i > 0; i--)
-        array[s.Length - i] = s[i - 1];
-    return new string(array);
+    Console.WriteLine("Enter a number (or 'Quite' to exit): ");
+    var input = Console.ReadLine();
+    
+    if (input.ToLower() == "quit")
+        break;
+
+    numbers.Add(Convert.ToInt32(input));
+}
+
+Console.WriteLine("Unique numbers:");
+foreach(var number in GetUniqueNumbers(numbers))
+    Console.WriteLine(number);
+
+List<int> GetUniqueNumbers(List<int> ints)
+{
+    var list = new List<int>();
+    foreach (var number in ints)
+    {
+        if (!list.Contains(number))
+            list.Add(number);
+    }
+
+    return list;
 }
