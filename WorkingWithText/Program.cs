@@ -1,16 +1,14 @@
-﻿using System.Text;
+﻿Console.Write("What's your name? ");
+var name = Console.ReadLine();
 
-var builder = new StringBuilder("Hello World");
-builder.Append('-', 10)
-    .AppendLine()
-    .Append("Header")
-    .AppendLine()
-    .Append('-', 10)
-    .Replace('-', '+')
-    .Remove(0, 10)
-    .Insert(0, new string('-', 10));
+var reversed = ReversedName(name);
 
-Console.WriteLine(builder);
-    
-// Using indexer
-Console.WriteLine("First Char: "+builder[0]);
+Console.WriteLine("Reversed name: " + reversed);
+
+string ReversedName(string? s)
+{
+    var array = new char[s.Length];
+    for (var i = s.Length; i > 0; i--)
+        array[s.Length - i] = s[i - 1];
+    return new string(array);
+}
