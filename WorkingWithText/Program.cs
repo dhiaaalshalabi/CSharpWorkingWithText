@@ -4,7 +4,7 @@ while (true)
     Console.WriteLine("Enter a number (or 'Quite' to exit): ");
     var input = Console.ReadLine();
     
-    if (input.ToLower() == "quit")
+    if (input?.ToLower() == "quit")
         break;
 
     numbers.Add(Convert.ToInt32(input));
